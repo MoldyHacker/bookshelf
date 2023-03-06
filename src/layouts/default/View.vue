@@ -1,10 +1,10 @@
 <template>
-<!--  <v-card>-->
     <v-layout>
       <v-app-bar
       color="primary"
       promient
       absolute
+      fixed
       >
         <v-app-bar-nav-icon
           variant="text"

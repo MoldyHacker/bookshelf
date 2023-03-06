@@ -3,8 +3,9 @@
 </template>
 
 <script>
+import BookListItem from "@/components/book-list/BookListItem.vue";
 export default {
-  name: "AllBooks"
+  name: "BookList"
 }
 </script>
 

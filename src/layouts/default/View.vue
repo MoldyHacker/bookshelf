@@ -4,6 +4,7 @@
       <v-app-bar
       color="primary"
       promient
+      absolute
       >
         <v-app-bar-nav-icon
           variant="text"
@@ -45,18 +46,21 @@
         grow
         color="teal"
       >
-        <v-btn>
-          <v-icon>mdi-bookmark-outline</v-icon>
-          Bookmarks
+        <v-btn
+          v-for="link in bottomNavLinks"
+          :key="link.to"
+          :to="link.to">
+          <v-icon>{{ link.icon }}</v-icon>
+          {{ link.title }}
         </v-btn>
-        <v-btn>
-          <v-icon>mdi-bookshelf</v-icon>
-          Collected Books
-        </v-btn>
-        <v-btn>
-          <v-icon>mdi-bookmark-plus-outline</v-icon>
-          Wanted Books
-        </v-btn>
+<!--        <v-btn to="/collected">-->
+<!--          <v-icon>mdi-bookshelf</v-icon>-->
+<!--          Collected-->
+<!--        </v-btn>-->
+<!--        <v-btn to="/wanted">-->
+<!--          <v-icon>mdi-bookmark-plus-outline</v-icon>-->
+<!--          Wanted-->
+<!--        </v-btn>-->
       </v-bottom-navigation>
     </v-layout>
 </template>
@@ -76,11 +80,28 @@
           value: 'bar',
         },
       ],
+      bottomNavLinks: [
+        {
+          to: '/bookmarked',
+          title: 'Bookmarked',
+          icon: 'mdi-bookmark-outline',
+        },
+        {
+          to: '/collected',
+          title: 'Collected',
+          icon: 'mdi-bookshelf',
+        },
+        {
+          to: '/wanted',
+          title: 'Wanted',
+          icon: 'mdi-bookmark-plus-outline',
+        },
+      ]
     }),
-    watch: {
-      group () {
-        this.drawer = false
-      },
-    },
+    // watch: {
+    //   group () {
+    //     this.drawer = false
+    //   },
+    // },
   }
 </script>
